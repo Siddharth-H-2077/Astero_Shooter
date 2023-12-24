@@ -24,18 +24,18 @@ export class parallaxBG extends Component {
     
     public bg3:Node;
 
-//Apparantly cant directly set up with a number when needed so need to use a temp var
-
+//Apparantly can't directly set up with a number with = sign so time for a var for some reason? 
+//...or im just too dumb to figure it out idk ...
 //taking the height for temp locations
-    public bgHeight1:number;
-    public bgHeight2:number;
-    public bgHeight3:number;
+    private bgHeight1:number;
+    private bgHeight2:number;
+    private bgHeight3:number;
 
 
 //making temp location
-    public tempStartLocation1=new Vec3;
-    public tempStartLocation2=new Vec3;
-    public tempStartLocation3=new Vec3;
+    private tempStartLocation1=new Vec3;
+    private tempStartLocation2=new Vec3;
+    private tempStartLocation3=new Vec3;
     
     private speed:number=60;
 
