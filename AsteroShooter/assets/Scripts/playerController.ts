@@ -16,21 +16,21 @@ export class playerController extends Component {
     })
     public rightmax:number=300;
     
-    public currentPlayerLoc: Vec2;
     public newPlayerLoc: Vec2;
 
     resetPlayer()
     {
-        this.currentPlayerLoc= new Vec2(0,0);
-        this.node.setPosition(this.currentPlayerLoc.x,this.currentPlayerLoc.y,0);
+        this.newPlayerLoc= new Vec2(0,0);
+        this.node.setPosition(this.newPlayerLoc.x,this.newPlayerLoc.y);
     }
 
     movePlayer()
     {
-        if(this.clicked)
+        if((this.clicked))
         {
             this.node.setWorldPosition(this.newPlayerLoc.x,this.newPlayerLoc.y,0);
-        }
+            //this.node.setPosition(this.newPlayerLoc.x,this.newPlayerLoc.y);
+        }        
     }
     public diff:Vec2;
     public clicked:boolean;

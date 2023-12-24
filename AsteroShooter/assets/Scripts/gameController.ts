@@ -1,4 +1,4 @@
-import { _decorator, Component, director, EventKeyboard, EventMouse, EventTouch, Input, input, KeyCode, Node, Vec2  } from 'cc';
+import { _decorator, Component, director, EventKeyboard, EventMouse, EventTouch, Input, input, KeyCode, Node, Vec2} from 'cc';
 import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
@@ -43,12 +43,13 @@ export class gameController extends Component {
     {   
         input.on(Input.EventType.KEY_DOWN,this.keyPress,this);
     }
-
+    
+    //mouse will work only on the area of the game controller.
     InitMouseListener()
     {
-        input.on(Input.EventType.TOUCH_START,this.onMouseDown,this);
-        input.on(Input.EventType.TOUCH_CANCEL,this.onMouseUp,this);
-        input.on(Input.EventType.TOUCH_MOVE,this.onMouseMove,this);
+        this.node.on(Node.EventType.TOUCH_START,this.onMouseDown,this);
+        this.node.on(Node.EventType.TOUCH_CANCEL,this.onMouseUp,this);
+        this.node.on(Node.EventType.TOUCH_MOVE,this.onMouseMove,this);
     }
     //not holding left click
     onMouseUp(event:EventTouch)
@@ -63,8 +64,9 @@ export class gameController extends Component {
     //while moving with left click held down    
     onMouseMove(event:EventTouch)
     {
-        this.player.currentPlayerLoc = new Vec2(event.getStartLocation());
-        this.player.newPlayerLoc = new Vec2 (event.getLocationInView().x,event.getLocationInView().y);
+        this.player.newPlayerLoc = new Vec2 (event.getLocation().x,event.getLocation().y);
+        this.player.diff= event.getStartLocation()
+
         this.player.movePlayer();
     }
 
