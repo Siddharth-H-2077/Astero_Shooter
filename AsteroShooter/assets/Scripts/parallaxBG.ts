@@ -27,9 +27,7 @@ export class parallaxBG extends Component {
 //Apparantly can't directly set up with a number with = sign so time for a var for some reason? 
 //...or im just too dumb to figure it out idk ...
 //taking the height for temp locations
-    private bgHeight1:number;
-    private bgHeight2:number;
-    private bgHeight3:number;
+    private bgHeight:number;
 
 
 //making temp location
@@ -41,13 +39,11 @@ export class parallaxBG extends Component {
 
     private setUpStuff()
     {
-        this.bgHeight1=this.bg1.getComponent(UITransform).height;
-        this.bgHeight2=this.bg2.getComponent(UITransform).height;
-        this.bgHeight3=this.bg3.getComponent(UITransform).height;    
+        this.bgHeight=this.bg1.getComponent(UITransform).height;
         
         this.tempStartLocation1.y=0;
-        this.tempStartLocation2.y=this.tempStartLocation1.y+this.bgHeight1;//960
-        this.tempStartLocation3.y=this.tempStartLocation2.y+this.bgHeight1;//960+960
+        this.tempStartLocation2.y=this.tempStartLocation1.y+this.bgHeight;//960
+        this.tempStartLocation3.y=this.tempStartLocation2.y+this.bgHeight;//960+960
 
         this.bg1.setPosition(this.tempStartLocation1);
         this.bg2.setPosition(this.tempStartLocation2);
@@ -73,15 +69,15 @@ export class parallaxBG extends Component {
 
          
         
-        if(this.tempStartLocation1.y<=(0-this.bgHeight1))
+        if(this.tempStartLocation1.y<=(0-this.bgHeight))
         {
             this.tempStartLocation1.y=1920;
         }
-        if(this.tempStartLocation2.y<=(0-this.bgHeight1))
+        if(this.tempStartLocation2.y<=(0-this.bgHeight))
         {
             this.tempStartLocation2.y=1920;
         }
-        if(this.tempStartLocation3.y<=(0-this.bgHeight1))
+        if(this.tempStartLocation3.y<=(0-this.bgHeight))
         {
             this.tempStartLocation3.y=1920;
         }

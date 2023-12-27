@@ -1,7 +1,8 @@
-import { _decorator, Component, director, EventKeyboard, EventMouse, EventTouch, Input, input, KeyCode, Node, Vec2} from 'cc';
+import { _decorator, Component, director, EventKeyboard, EventTouch, Input, input, KeyCode, Node, Vec2} from 'cc';
 import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
+import { bulletScript } from './bulletScript';
 const { ccclass, property } = _decorator;
 
 @ccclass('gameController')
@@ -13,7 +14,7 @@ export class gameController extends Component {
         tooltip:'player'
     })
 
-    public player:playerController;
+    private player:playerController;
     
     //UI layer reference
     @property
@@ -22,21 +23,27 @@ export class gameController extends Component {
     })
     
     //parallax reference
-    public result:results
+    private result:results
+
+
     @property({
         type :parallaxBG,
         tooltip:'moving background with the script'
     })
-    public background:parallaxBG;
+    private background:parallaxBG;
+
 
     //reference to handle all the inputs 
     onLoad()
     {
+        director.pause();
+    
         this.InitKeyboardListener();
         this.InitMouseListener();
         this.result.resetScore();
+        this.result.firstscreen();
         this.player.resetPlayer();
-        director.pause();
+        
     }
 
     InitKeyboardListener()
@@ -51,6 +58,7 @@ export class gameController extends Component {
         this.node.on(Node.EventType.TOUCH_CANCEL,this.onMouseUp,this);
         this.node.on(Node.EventType.TOUCH_MOVE,this.onMouseMove,this);
     }
+
     //not holding left click
     onMouseUp(event:EventTouch)
     {
@@ -79,7 +87,6 @@ export class gameController extends Component {
                 this.resultGame();
                 break;
             case KeyCode.DIGIT_1:
-                console.log("score++");
                 this.result.addScore();
                 break;
             case KeyCode.ENTER:
@@ -89,17 +96,20 @@ export class gameController extends Component {
     
     resultGame()
     {
-        this.result.showFinalScore();
         director.pause();
+
+        this.result.showFinalScore();
     }
 
     StartGame()
     {
+        director.resume();
+
         this.result.resetScore();
+        this.result.hidefirstscreen();
         this.result.hideScore();
         this.player.resetPlayer();
-        director.resume();
+
     }
 }
-
 
