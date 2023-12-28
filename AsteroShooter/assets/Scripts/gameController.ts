@@ -2,7 +2,7 @@ import { _decorator, Component, director, EventKeyboard, EventTouch, Input, inpu
 import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
-import { bulletScript } from './bulletScript';
+import { bulletSpawn } from './bulletSpawn';
 const { ccclass, property } = _decorator;
 
 @ccclass('gameController')
@@ -15,6 +15,14 @@ export class gameController extends Component {
     })
 
     private player:playerController;
+
+    //bullet Spawn
+    @property({
+        type:bulletSpawn,
+        tooltip:'player bullets'
+    })
+
+    private bulletSpawn:bulletSpawn;
     
     //UI layer reference
     @property
@@ -22,11 +30,11 @@ export class gameController extends Component {
         type:results
     })
     
-    //parallax reference
     private result:results
 
-
-    @property({
+    //parallax reference
+    @property
+    ({
         type :parallaxBG,
         tooltip:'moving background with the script'
     })
@@ -36,14 +44,9 @@ export class gameController extends Component {
     //reference to handle all the inputs 
     onLoad()
     {
-        director.pause();
-    
+        this.playGame();
         this.InitKeyboardListener();
         this.InitMouseListener();
-        this.result.resetScore();
-        this.result.firstscreen();
-        this.player.resetPlayer();
-        
     }
 
     InitKeyboardListener()
@@ -89,21 +92,27 @@ export class gameController extends Component {
             case KeyCode.DIGIT_1:
                 this.result.addScore();
                 break;
-            case KeyCode.ENTER:
-                this.StartGame();
         }
     }
     
     resultGame()
     {
         director.pause();
-
+        //director.loadScene('uiscene');
         this.result.showFinalScore();
+
+        this.node.on(Node.EventType.TOUCH_START,this.cScene,this);
+        director.preloadScene('uiscene');        
     }
 
-    StartGame()
+    private cScene()
+        {
+            director.loadScene('uiscene');
+        }
+
+    playGame()
     {
-        director.resume();
+        //director.resume();
 
         this.result.resetScore();
         this.result.hidefirstscreen();

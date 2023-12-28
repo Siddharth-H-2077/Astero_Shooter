@@ -3,25 +3,29 @@ const { ccclass, property } = _decorator;
 
 @ccclass('results')
 export class results extends Component {
-@property({
+@property
+({
     type:Label,
     tooltip:'Final Score to show'
 })
 private Fscore:Label;
 
-@property({
+@property
+({
     type:Label,
     tooltip:'Try Again'
 })
 private TAgain:Label;
 
-@property({
+@property
+({
     type:Label,
     tooltip:'Current Score To show in Game'
 })
 private score:Label;
 
-@property({
+@property
+({
     type:Label,
     tooltip:'First scene'
 })

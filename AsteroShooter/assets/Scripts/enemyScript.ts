@@ -1,13 +1,12 @@
 import { _decorator, Component, Vec2 } from 'cc';
-import { playerController } from './playerController';
 const { ccclass, property } = _decorator;
 
-@ccclass('bulletScript')
-export class bulletScript extends Component {
+@ccclass('enemyScript')
+export class enemyScript extends Component {
     @property
     ({
         type:Number,
-        tooltip:'The speed of bullet'
+        tooltip:'The speed of enemy'
     })
     public speed;
    
@@ -17,15 +16,16 @@ export class bulletScript extends Component {
         this.tempLocation= new Vec2(this.node.getPosition().x,this.node.getPosition().y);
     }
     
-    //to move bullet
+    //to move enemy
+    //same script as base bullet script
     update(deltaTime: number) 
     {
-        this.tempLocation.y +=this.speed*deltaTime;
+        this.tempLocation.y -=this.speed*deltaTime;
         this.node.setPosition(this.tempLocation.x,this.tempLocation.y);
-        if(this.tempLocation.y>500)
+        if(this.tempLocation.y<-569)
         {
-            this.killBullet();
-            console.log("Bullet killed");
+            this.killEnemy();
+            console.log("Enemy killed");
         }
     }
 
@@ -36,10 +36,10 @@ export class bulletScript extends Component {
     }
 
     //destroy bullet
-    public killBullet()
+    public killEnemy()
     {
         this.node.destroy();
     }
- }
+}
 
 

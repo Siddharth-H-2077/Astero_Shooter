@@ -3,21 +3,24 @@ const { ccclass, property } = _decorator;
 
 @ccclass('parallaxBG')
 export class parallaxBG extends Component {
-    @property({
+    @property
+    ({
         type:Node,
         tooltip:'first img'
     })
 
     public bg1:Node;
 
-    @property({
+    @property
+    ({
         type:Node,
         tooltip:'second img'
     })
     
     public bg2:Node;  
     
-    @property({
+    @property
+    ({
         type:Node,
         tooltip:'third img'
     })

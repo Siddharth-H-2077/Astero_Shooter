@@ -1,4 +1,4 @@
-import { _decorator, Component, instantiate, macro, Node, Prefab, UITransform } from 'cc';
+import { _decorator, Component, instantiate, macro, Node, Prefab } from 'cc';
 import { playerController } from './playerController';
 const { ccclass, property } = _decorator;
 
@@ -11,21 +11,24 @@ export class bulletSpawn extends Component {
     })
     public bulletPrefab=null;
     
-    @property({
+    @property
+    ({
         type:Node,
         tooltip:'player controller needed to reference the player location to the spawned bullets'
     })
 
     public playerRef:Node;
+    public bullet;
+
 
     shootBullet()
     {
         //instansiates the bullet
-        let bullet=instantiate(this.bulletPrefab);
+        this.bullet=instantiate(this.bulletPrefab);
         //places the instansiated object on screen
-        bullet.setWorldPosition(this.playerRef.getPosition());
+        this.bullet.setWorldPosition(this.playerRef.getPosition());
         //loads the instansiated boi on screen
-        this.node.parent.addChild(bullet);
+        this.node.parent.addChild(this.bullet);
         console.log("+1 bullet on screen");
     }     
 
