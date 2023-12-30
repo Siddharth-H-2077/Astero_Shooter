@@ -1,4 +1,4 @@
-import { _decorator, Component, director, EventKeyboard, EventTouch, Input, input, KeyCode, Node, Vec2} from 'cc';
+import { _decorator, CCInteger, Component, director, EventTouch, Input, input,  Node, Vec2} from 'cc';
 import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
@@ -7,6 +7,13 @@ const { ccclass, property } = _decorator;
 
 @ccclass('gameController')
 export class gameController extends Component {
+
+    //Target Score
+    @property({
+        type:CCInteger,
+        tooltip:'Target Score'
+    })
+    public target;
 
     //player reference
     @property({
@@ -25,33 +32,38 @@ export class gameController extends Component {
     private bulletSpawn:bulletSpawn;
     
     //UI layer reference
-    @property
-    ({
+    @property({
         type:results
     })
     
     private result:results
 
     //parallax reference
-    @property
-    ({
+    @property({
         type :parallaxBG,
         tooltip:'moving background with the script'
     })
     private background:parallaxBG;
 
-
     //reference to handle all the inputs 
     onLoad()
     {
+        this.player.playerDied=false;
         this.playGame();
-        this.InitKeyboardListener();
         this.InitMouseListener();
     }
 
-    InitKeyboardListener()
-    {   
-        input.on(Input.EventType.KEY_DOWN,this.keyPress,this);
+    update()
+    {
+        if(this.target<=this.result.currentScore)
+        {
+            this.resultGame();
+        }
+        if(this.player.playerDied)
+        {
+            this.resultGame();
+            //this.player.playerDied=false;
+        }
     }
     
     //mouse will work only on the area of the game controller.
@@ -80,20 +92,6 @@ export class gameController extends Component {
 
         this.player.movePlayer();
     }
-
-    //keypress for debugging and testing phase
-    keyPress(event:EventKeyboard)
-    {
-        switch(event.keyCode)
-        {
-            case KeyCode.ESCAPE:
-                this.resultGame();
-                break;
-            case KeyCode.DIGIT_1:
-                this.result.addScore();
-                break;
-        }
-    }
     
     resultGame()
     {
@@ -112,7 +110,7 @@ export class gameController extends Component {
 
     playGame()
     {
-        //director.resume();
+        director.resume();
 
         this.result.resetScore();
         this.result.hidefirstscreen();

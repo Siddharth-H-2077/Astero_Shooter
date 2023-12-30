@@ -29,7 +29,7 @@ export class bulletSpawn extends Component {
         this.bullet.setWorldPosition(this.playerRef.getPosition());
         //loads the instansiated boi on screen
         this.node.parent.addChild(this.bullet);
-        console.log("+1 bullet on screen");
+        //console.log("+1 bullet on screen");
     }     
 
     onLoad() 

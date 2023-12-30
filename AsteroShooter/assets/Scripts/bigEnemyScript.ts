@@ -1,8 +1,21 @@
-import { _decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType } from 'cc';
+import { _decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType, Sprite } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('enemyScript')
-export class enemyScript extends Component {
+@ccclass('bigEnemyScript')
+export class bigEnemyScript extends Component {
+    
+    @property({
+        type:Sprite
+        ,tooltip:'BEEG BOY'
+    })
+    public beeg:Sprite;
+
+    @property({
+        type:Sprite
+        ,tooltip:'smol boy'
+    })
+    public smol:Sprite;
+
     @property
     ({
         type:CCFloat,
@@ -21,6 +34,8 @@ export class enemyScript extends Component {
     public tempLocation:Vec2;
 
     onLoad(): void {
+        this.beeg.node.active=true;
+        this.smol.node.active=false;
         this.collider=this.getComponent(Collider2D);
         this.collider.on(Contact2DType.BEGIN_CONTACT,this.onReduceLife,this);
 
@@ -46,10 +61,16 @@ export class enemyScript extends Component {
         this.life-=1;
         setTimeout(()=>
         {
+            if(this.life==1)
+            {
+                this.beeg.node.active=false;
+                this.smol.node.active=true;    
+            }
             if(this.life===0)
-        {
-            this.node.destroy();
-        }}
+            {
+                this.node.destroy();
+            }
+        }
         )
     }
 

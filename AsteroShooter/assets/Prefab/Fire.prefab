@@ -32,8 +32,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -2.636,
-      "y": -191.7,
+      "x": 0,
+      "y": 0,
       "z": -24.891
     },
     "_lrot": {
@@ -109,7 +109,7 @@
       "b": 255,
       "a": 255
     },
-    "duration": 2,
+    "duration": -1,
     "emissionRate": 100,
     "life": 0.20000000298023224,
     "lifeVar": 0.5,
@@ -118,7 +118,7 @@
     "startSize": 10,
     "startSizeVar": 50,
     "endSize": 30.31999969482422,
-    "endSizeVar": 0,
+    "endSizeVar": 10,
     "startSpin": 0,
     "startSpinVar": 0,
     "endSpin": 0,
@@ -139,8 +139,8 @@
       "x": 0.25,
       "y": 0.8600000143051147
     },
-    "speed": 0,
-    "speedVar": 50,
+    "speed": 10,
+    "speedVar": 20,
     "tangentialAccel": 0,
     "tangentialAccelVar": 0,
     "radialAccel": 0,
@@ -172,9 +172,9 @@
     },
     "_startColorVar": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 150,
+      "g": 10,
+      "b": 133,
       "a": 255
     },
     "_endColor": {
@@ -186,10 +186,10 @@
     },
     "_endColorVar": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
-      "a": 0
+      "r": 230,
+      "g": 29,
+      "b": 173,
+      "a": 255
     },
     "_positionType": 0,
     "_id": ""
@@ -207,6 +207,7 @@
       "__id__": 0
     },
     "fileId": "37D7p9SfFA2LV2xd5xdign",
+    "instance": null,
     "targetOverrides": null
   }
 ]

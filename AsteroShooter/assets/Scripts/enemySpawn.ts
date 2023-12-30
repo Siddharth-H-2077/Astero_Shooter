@@ -1,4 +1,4 @@
-import { _decorator, Component, Prefab,macro,instantiate } from 'cc';
+import { _decorator, Component, Prefab,macro,instantiate, Vec2, CCFloat } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('enemySpawn')
@@ -12,13 +12,21 @@ export class enemySpawn extends Component {
     
     @property
     ({
-        type:Number,
+        type:CCFloat,
         tooltip:'enemy spawn rate'
     })
     public spawnRate=2.25;
+
+    @property
+    ({
+        type:CCFloat,
+        tooltip:'speed'
+    })
+    public speed=60;
     
     public enemy;
-
+    public cPos:Vec2;
+    private reachedCorner:boolean;
 
     spawnEnemy()
     {
@@ -28,7 +36,7 @@ export class enemySpawn extends Component {
         this.enemy.setWorldPosition(this.node.getPosition());
         //loads the instansiated boi on screen
         this.node.parent.addChild(this.enemy);
-        console.log("+1 bullet on screen");
+        //console.log("+1 enemy on screen");
     }     
 
     onLoad() 
@@ -36,12 +44,31 @@ export class enemySpawn extends Component {
         //Same code copy pasted from bullet spawner with little changes to make the spawner move
         //params: callback function, rate of fire, how long to repeat,delay 
        this.schedule(this.spawnEnemy,this.spawnRate,macro.REPEAT_FOREVER,0);
+       this.cPos=new Vec2(0,500);
+       this.reachedCorner=true;
+       this.node.setPosition(this.cPos.x,this.cPos.y,0);
     }
 
-    leftRightMove()
+    update(deltaTime: number): void 
     {
+        this.cPos.x +=this.speed*deltaTime;
+        this.node.setPosition(this.cPos.x,this.cPos.y,0);
 
+        this.checkCorner();
     }
+    
+    public checkCorner()
+    {
+        if(this.cPos.x>=200)
+        {
+            this.speed*=-1;
+        }
+        else if(this.cPos.x<=-200)
+        {
+            this.speed*=-1;
+        }
+    }
+    
 }
 
 

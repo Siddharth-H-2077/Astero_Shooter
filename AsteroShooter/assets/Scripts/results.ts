@@ -1,4 +1,4 @@
- import { _decorator, Component, Label, Node } from 'cc';
+ import { _decorator, Component, Label } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('results')
@@ -37,7 +37,8 @@ private FScene:Label;
 })
 private GName:Label;
 
-private currentScore:number;
+public currentScore:number;
+
 updateScore(num:number)
 {
     this.currentScore=num;
