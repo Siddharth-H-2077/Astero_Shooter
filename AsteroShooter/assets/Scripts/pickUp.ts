@@ -1,27 +1,20 @@
-import { _decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType,Prefab,instantiate} from 'cc';
+import {_decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType,Prefab,instantiate } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('enemyScript')
-export class enemyScript extends Component {
+@ccclass('pickUp')
+export class pickUp extends Component {
     @property({
         type:Prefab
-        ,tooltip:'splosion Goes here'
+        ,tooltip:'Particles Go here'
     })
     public splosion:Prefab;
 
     @property
     ({
         type:CCFloat,
-        tooltip:'The speed of enemy'
+        tooltip:'The speed of pickup'
     })
     public speed;
-
-    @property
-    ({
-        type:CCFloat,
-        tooltip:'The speed of enemy'
-    })
-    public life;
 
     public collider;
     public tempLocation:Vec2;
@@ -49,19 +42,14 @@ export class enemyScript extends Component {
     //check bullet collision
     public checkCollision()
     {
-        this.life-=1;
         setTimeout(()=>
         {
             var spln=instantiate(this.splosion);
             spln.setWorldPosition(this.node.getPosition());
-
             this.node.parent.addChild(spln);
 
-            if(this.life<=0)
-        {
-            this.node.destroy();
-        }}
-        )
+            this.killEnemy();
+        },1);
     }
 
     //destroy bullet
@@ -72,12 +60,9 @@ export class enemyScript extends Component {
         //check bullet collision
         onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
         {
-            //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
-            //destroys bullet after 1 micro second 
             setTimeout(() => {
                 this.checkCollision();
-            },0.001);
-    
+            },1);
         }
 }
 

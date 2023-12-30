@@ -40,7 +40,7 @@ export class bulletScript extends Component {
     //check bullet collision
     onBulleted(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
     {
-        console.log("Bulletted-"+otherCollider.name);
+       //console.log("Bulletted-"+otherCollider.name);
         //destroys bullet after 1 micro second 
         setTimeout(() => {
             this.game.result.addScore();

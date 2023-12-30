@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "Fire",
+    "_name": "Pick up FX",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Fire",
+    "_name": "Pick up FX",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -34,7 +34,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": -24.891
+      "z": 0
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -50,7 +50,7 @@
       "z": 1
     },
     "_mobility": 0,
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -85,7 +85,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "1cIH44fwxGN6SCKNjoCS2h"
+    "fileId": "efpyHlLYVGsruqY4hGcS+6"
   },
   {
     "__type__": "cc.ParticleSystem2D",
@@ -109,20 +109,20 @@
       "b": 255,
       "a": 255
     },
-    "duration": -1,
-    "emissionRate": 100,
-    "life": 0.20000000298023224,
-    "lifeVar": 0.5,
+    "duration": 0.2,
+    "emissionRate": 200,
+    "life": 0.3,
+    "lifeVar": 0.2,
     "angle": 360,
     "angleVar": 360,
-    "startSize": 10,
+    "startSize": 3.369999885559082,
     "startSizeVar": 50,
     "endSize": 30.31999969482422,
-    "endSizeVar": 10,
-    "startSpin": 0,
+    "endSizeVar": 30,
+    "startSpin": -47.369998931884766,
     "startSpinVar": 0,
-    "endSpin": 0,
-    "endSpinVar": 0,
+    "endSpin": -47.369998931884766,
+    "endSpinVar": -142.11000061035156,
     "sourcePos": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -130,73 +130,76 @@
     },
     "posVar": {
       "__type__": "cc.Vec2",
-      "x": 7,
-      "y": 7
+      "x": 6.9,
+      "y": 6.9
     },
-    "emitterMode": 0,
+    "emitterMode": 1,
     "gravity": {
       "__type__": "cc.Vec2",
       "x": 0.25,
       "y": 0.8600000143051147
     },
-    "speed": 10,
-    "speedVar": 20,
-    "tangentialAccel": 0,
-    "tangentialAccelVar": 0,
-    "radialAccel": 0,
-    "radialAccelVar": 0,
+    "speed": 0,
+    "speedVar": 190.7899932861328,
+    "tangentialAccel": -92.11000061035156,
+    "tangentialAccelVar": 65.79000091552734,
+    "radialAccel": -671.0499877929688,
+    "radialAccelVar": 65.79000091552734,
     "rotationIsDir": false,
-    "startRadius": 100,
+    "startRadius": 80,
     "startRadiusVar": 0,
     "endRadius": 0,
     "endRadiusVar": 0,
     "rotatePerS": 0,
     "rotatePerSVar": 0,
     "playOnLoad": true,
-    "autoRemoveOnFinish": false,
+    "autoRemoveOnFinish": true,
     "_preview": true,
     "preview": true,
     "_custom": true,
-    "_file": null,
+    "_file": {
+      "__uuid__": "e17b4526-57a2-48d3-acc9-cf09f30aa138",
+      "__expectedType__": "cc.ParticleAsset"
+    },
     "_spriteFrame": {
       "__uuid__": "24c419ea-63a8-4ea1-a9d0-7fc469489bbc@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
-    "_totalParticles": 200,
+    "_totalParticles": 100,
     "_startColor": {
       "__type__": "cc.Color",
-      "r": 202,
-      "g": 86,
-      "b": 86,
+      "r": 221,
+      "g": 46,
+      "b": 46,
       "a": 255
     },
     "_startColorVar": {
       "__type__": "cc.Color",
-      "r": 150,
-      "g": 10,
-      "b": 133,
-      "a": 255
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 0
     },
     "_endColor": {
       "__type__": "cc.Color",
-      "r": 133,
-      "g": 4,
-      "b": 81,
+      "r": 226,
+      "g": 210,
+      "b": 20,
       "a": 255
     },
     "_endColorVar": {
       "__type__": "cc.Color",
-      "r": 230,
-      "g": 29,
-      "b": 173,
-      "a": 255
+      "r": 0,
+      "g": 0,
+      "b": 0,
+      "a": 0
     },
     "_positionType": 0,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "53/n86w/NCaonc5hS7XmWg"
+    "fileId": "10b83z2NROE7+hsGSD3HIt"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -206,7 +209,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "37D7p9SfFA2LV2xd5xdign",
+    "fileId": "b6zRMddqxJm4etP1bPuTCf",
     "instance": null,
     "targetOverrides": null
   }

@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "Asteroid-001",
+    "_name": "Coin",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Asteroid-001",
+    "_name": "Coin",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -41,8 +41,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -27.404,
+      "y": 406.176,
       "z": 0
     },
     "_lrot": {
@@ -54,12 +54,12 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.3,
-      "y": 0.3,
+      "x": 0.36,
+      "y": 0.36,
       "z": 1
     },
     "_mobility": 0,
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -82,8 +82,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 166,
-      "height": 169
+      "width": 230,
+      "height": 227
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -94,7 +94,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "9ceLzRUxpDDqjZ5aI2WzsO"
+    "fileId": "f6CN33bgtOWK8h2LixBrgt"
   },
   {
     "__type__": "cc.Sprite",
@@ -119,7 +119,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "f43555a8-db42-48db-8083-8df67fd72e0e@f9941",
+      "__uuid__": "f353b376-2614-41af-8602-412ca46a60f8@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -139,37 +139,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "c7xt87ppFAAoj8ZpmfvnE/"
-  },
-  {
-    "__type__": "cc.CircleCollider2D",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 7
-    },
-    "tag": 0,
-    "_group": 4,
-    "_density": 1,
-    "_sensor": false,
-    "_friction": 0.2,
-    "_restitution": 0,
-    "_offset": {
-      "__type__": "cc.Vec2",
-      "x": -0.8,
-      "y": 4.3
-    },
-    "_radius": 90,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "44NYij9tlFm6XxeKx9zt11"
+    "fileId": "dfUoEUr3dLJqn2L/CfrarJ"
   },
   {
     "__type__": "cc.RigidBody2D",
@@ -181,12 +151,12 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 9
+      "__id__": 7
     },
     "enabledContactListener": true,
     "bullet": false,
     "awakeOnLoad": true,
-    "_group": 4,
+    "_group": 1,
     "_type": 0,
     "_allowSleep": true,
     "_gravityScale": 0,
@@ -203,10 +173,40 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "6as80TFo5APbkGKT6Typ9c"
+    "fileId": "7aO3d6vOBKKqa1D4OPMUow"
   },
   {
-    "__type__": "a15caOhPM1EGai77fxWKfAU",
+    "__type__": "cc.CircleCollider2D",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 9
+    },
+    "tag": 0,
+    "_group": 1,
+    "_density": 1,
+    "_sensor": false,
+    "_friction": 0.2,
+    "_restitution": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": -1.7,
+      "y": -5.7
+    },
+    "_radius": 104.1,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "165xpdzYZN6YRWN5uqZoga"
+  },
+  {
+    "__type__": "72147XjvxRBLL/ZClSJsB0N",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -218,16 +218,15 @@
       "__id__": 11
     },
     "splosion": {
-      "__uuid__": "82701155-d919-4ecf-9117-b142eabad1e5",
+      "__uuid__": "25e668cf-349a-4d2f-8fa1-dd2742f180e4",
       "__expectedType__": "cc.Prefab"
     },
-    "speed": 150,
-    "life": 1,
+    "speed": 90,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "01NOy3mN1KjoMGPk76NaEl"
+    "fileId": "fcHmKsxyRFg6Vs2lV/xBCr"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -237,8 +236,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "475e0Bij9FfKZWsjZpCEYI",
-    "instance": null,
+    "fileId": "2az2+qKMZLtJBx7DTweFia",
     "targetOverrides": null
   }
 ]

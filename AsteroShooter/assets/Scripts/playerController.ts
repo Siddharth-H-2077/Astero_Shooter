@@ -7,6 +7,9 @@ export class playerController extends Component {
     public diff:Vec2;
     public clicked:boolean;
     public playerDied:boolean;
+    public gotCoin:boolean;
+    public doubleBullet:boolean;
+
 
     @property({
         type:Collider2D,
@@ -34,10 +37,18 @@ export class playerController extends Component {
 
     onBeginContact(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
     {
-        console.log("Contacted-"+otherCollider.name);
-        if(otherCollider.name==="Asteroid<CircleCollider2D>"||otherCollider.name==="Asteroid-001<CircleCollider2D>")
+        //console.log("Contacted-"+otherCollider.name);
+        if(otherCollider.name==="Asteroid<CircleCollider2D>"||otherCollider.name==="Asteroid-001<CircleCollider2D>"||otherCollider.name==="SpecialAsteroid<CircleCollider2D>"||otherCollider.name==="GoldenBoy<CircleCollider2D>")
         {   
             this.playerDied=true;
+        }
+        else if(otherCollider.name==="Coin<CircleCollider2D>")
+        {   
+            this.gotCoin=true;
+        }
+        else if(otherCollider.name==="DoubleBullet<CircleCollider2D>")
+        {   
+            this.doubleBullet=true;
         }
     }
     

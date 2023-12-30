@@ -1,9 +1,16 @@
-import { _decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType, Sprite } from 'cc';
+import { _decorator, CCFloat, Component, Vec2,Collider2D,IPhysics2DContact,Contact2DType, Sprite, instantiate, Prefab } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('bigEnemyScript')
 export class bigEnemyScript extends Component {
     
+    
+    @property({
+        type:Prefab
+        ,tooltip:'splosion Goes here'
+    })
+    public splosion:Prefab;
+
     @property({
         type:Sprite
         ,tooltip:'BEEG BOY'
@@ -61,17 +68,25 @@ export class bigEnemyScript extends Component {
         this.life-=1;
         setTimeout(()=>
         {
-            if(this.life==1)
+            if(this.life!=0)
             {
+                var spln=instantiate(this.splosion);
+                spln.setWorldPosition(this.node.getPosition());
+                this.node.parent.addChild(spln);
+
                 this.beeg.node.active=false;
                 this.smol.node.active=true;    
             }
-            if(this.life===0)
+            if(this.life<=0)
             {
-                this.node.destroy();
+                var spln=instantiate(this.splosion);
+                spln.setWorldPosition(this.node.getPosition());
+                this.node.parent.addChild(spln);
+
+                this.killEnemy();
             }
         }
-        )
+        ,3)
     }
 
     //destroy bullet
@@ -84,10 +99,10 @@ export class bigEnemyScript extends Component {
         onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
         {
             //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
-            //destroys bullet after 1 micro second 
+            //destroys asteroid after 1 milli second 
             setTimeout(() => {
-                this.checkCollision();
-            },0.001);
+            this.checkCollision();
+            },3);
     
         }
 }

@@ -3,6 +3,7 @@ import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
 import { bulletSpawn } from './bulletSpawn';
+import { PowerDecider } from './PowerDecider';
 const { ccclass, property } = _decorator;
 
 @ccclass('gameController')
@@ -33,7 +34,8 @@ export class gameController extends Component {
     
     //UI layer reference
     @property({
-        type:results
+        type:results,
+        tooltip:'UI RESULTS ON SCENE GO HERE'
     })
     
     private result:results
@@ -45,9 +47,17 @@ export class gameController extends Component {
     })
     private background:parallaxBG;
 
+    @property({
+        type :PowerDecider,
+        tooltip:'moving background with the script'
+    })
+    private Power:PowerDecider;
+
     //reference to handle all the inputs 
     onLoad()
     {
+        this.player.doubleBullet=false;
+        this.player.gotCoin=false;
         this.player.playerDied=false;
         this.playGame();
         this.InitMouseListener();
@@ -57,13 +67,33 @@ export class gameController extends Component {
     {
         if(this.target<=this.result.currentScore)
         {
+            //WIN SCREEN
             this.resultGame();
         }
-        if(this.player.playerDied)
+        else if(this.player.playerDied)
         {
+            //LOSE SCREEN
             this.resultGame();
-            //this.player.playerDied=false;
         }
+        if(this.player.gotCoin)
+        {
+            setTimeout(()=>
+            {
+                this.result.gotCoin();
+            },0.3);
+            this.player.gotCoin=false;
+        }
+        if(this.player.doubleBullet)
+        {
+            this.Power.activate=true;
+            setTimeout(()=>
+            {
+                this.Power.Activate();
+            },0.3);
+            this.player.doubleBullet=false;
+
+        }
+
     }
     
     //mouse will work only on the area of the game controller.

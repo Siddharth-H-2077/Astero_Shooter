@@ -1,41 +1,41 @@
- import { _decorator, Component, Label } from 'cc';
+ import { _decorator, Component, Label,RichText } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('results')
 export class results extends Component {
 @property
 ({
-    type:Label,
+    type:RichText,
     tooltip:'Final Score to show'
 })
-private Fscore:Label;
+private Fscore:RichText;
 
 @property
 ({
-    type:Label,
+    type:RichText,
     tooltip:'Try Again'
 })
-private TAgain:Label;
+private TAgain:RichText;
 
 @property
 ({
-    type:Label,
+    type:RichText,
     tooltip:'Current Score To show in Game'
 })
-private score:Label;
+private score:RichText;
 
 @property
 ({
-    type:Label,
+    type:RichText,
     tooltip:'First scene'
 })
-private FScene:Label;
+private FScene:RichText;
 
 @property({
-    type:Label,
+    type:RichText,
     tooltip:'Game Name'
 })
-private GName:Label;
+private GName:RichText;
 
 public currentScore:number;
 
@@ -86,6 +86,13 @@ showFinalScore()
     this.TAgain.node.active=true;
     this.GName.node.active=true;
 }
+
+public gotCoin()
+{
+    console.log("SCORE ADDED COIN");
+    this.addScore();
 }
+}
+
 
 
