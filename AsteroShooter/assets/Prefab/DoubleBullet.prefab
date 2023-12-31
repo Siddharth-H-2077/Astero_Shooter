@@ -41,8 +41,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 82.659,
-      "y": 408.295,
+      "x": 0,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -54,8 +54,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 0.5,
+      "x": 0.45,
+      "y": 0.4,
       "z": 1
     },
     "_mobility": 0,
@@ -116,7 +116,7 @@
       "r": 255,
       "g": 255,
       "b": 255,
-      "a": 255
+      "a": 216
     },
     "_spriteFrame": {
       "__uuid__": "fc70f6f7-876a-4ea9-9cb9-667d1f4e01a9@f9941",
@@ -237,6 +237,7 @@
       "__id__": 0
     },
     "fileId": "c661qK161JBbhHNP2751MD",
+    "instance": null,
     "targetOverrides": null
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "Asteroid",
+    "_name": "SpecialAsteroid",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Asteroid",
+    "_name": "SpecialAsteroid",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -53,28 +53,28 @@
       "__type__": "cc.Quat",
       "x": 0,
       "y": 0,
-      "z": 0,
-      "w": 1
+      "z": 0.25881904510252074,
+      "w": 0.9659258262890683
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.9,
+      "y": 0.8,
       "z": 1
     },
     "_mobility": 0,
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 30
     },
     "_id": ""
   },
   {
     "__type__": "cc.Node",
-    "_name": "Large-Asteroid",
+    "_name": "SmolAsteroid",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -103,22 +103,22 @@
       "__type__": "cc.Quat",
       "x": 0,
       "y": 0,
-      "z": 0,
-      "w": 1
+      "z": -0.6427876096865393,
+      "w": 0.766044443118978
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.75,
-      "y": 0.75,
+      "x": 0.8,
+      "y": 0.8,
       "z": 1
     },
     "_mobility": 0,
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": -80
     },
     "_id": ""
   },
@@ -148,7 +148,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "68bDilX/pPG4vD/kjj3AE0"
+    "fileId": "20k+TZmdBNXZpqDcW4ZeF2"
   },
   {
     "__type__": "cc.Sprite",
@@ -167,13 +167,13 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 94,
+      "g": 235,
+      "b": 28,
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "f43555a8-db42-48db-8083-8df67fd72e0e@f9941",
+      "__uuid__": "dbd28c27-4320-4fcc-ae52-c4cf80245706@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -193,7 +193,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "00WnCj0n1Kh5HNVrekh1TQ"
+    "fileId": "46IP1QbxpKorocQuzjzXbQ"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -203,14 +203,14 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "0eyauhFrdNwaDpp2j5jVET",
+    "fileId": "43iQa+kadFyI2IvPB8c+re",
     "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.Node",
-    "_name": "Smol-Asteroid",
+    "_name": "Large Asteroid",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -239,22 +239,22 @@
       "__type__": "cc.Quat",
       "x": 0,
       "y": 0,
-      "z": 1,
-      "w": 6.123233995736766e-17
+      "z": 0,
+      "w": 1
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.55,
-      "y": 0.5,
+      "x": 1.2,
+      "y": 1.1,
       "z": 1
     },
     "_mobility": 0,
-    "_layer": 1073741824,
+    "_layer": 33554432,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": 180,
-      "y": 180,
-      "z": 7.016709298534876e-15
+      "x": 0,
+      "y": 0,
+      "z": 0
     },
     "_id": ""
   },
@@ -284,7 +284,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "36OAP6BNNCHZAMibkQlT6L"
+    "fileId": "3cPoOeHa1B775cIU355LWU"
   },
   {
     "__type__": "cc.Sprite",
@@ -303,13 +303,13 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 94,
+      "g": 235,
+      "b": 28,
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "f43555a8-db42-48db-8083-8df67fd72e0e@f9941",
+      "__uuid__": "dbd28c27-4320-4fcc-ae52-c4cf80245706@f9941",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -329,7 +329,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "2eV2rphOBHXZE/p/S+1kN0"
+    "fileId": "c7ALd2tiRF1rHnxAk+HD9s"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -339,7 +339,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "10qYTosghNCYGKopS95OR+",
+    "fileId": "d8pKwFVvJLNIU8oHhUG3Gr",
     "instance": null,
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
@@ -370,37 +370,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "9ceLzRUxpDDqjZ5aI2WzsO"
-  },
-  {
-    "__type__": "cc.CircleCollider2D",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 17
-    },
-    "tag": 0,
-    "_group": 4,
-    "_density": 1,
-    "_sensor": false,
-    "_friction": 0.2,
-    "_restitution": 0,
-    "_offset": {
-      "__type__": "cc.Vec2",
-      "x": 0.19999999999999996,
-      "y": -1.8000000000000003
-    },
-    "_radius": 43.2,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "02fk/w8sdBj6gYKyvmN9eR"
+    "fileId": "16kLN8NO9MJrDcHKcYtEeT"
   },
   {
     "__type__": "cc.RigidBody2D",
@@ -412,7 +382,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 19
+      "__id__": 17
     },
     "enabledContactListener": true,
     "bullet": false,
@@ -434,10 +404,40 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "2fzATrNqxDhInxr4IXkglm"
+    "fileId": "bfrk3YhIhOSZWd83sYIA85"
   },
   {
-    "__type__": "d41e36pax5HSbHf8gSv9jDa",
+    "__type__": "cc.CircleCollider2D",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 19
+    },
+    "tag": 0,
+    "_group": 4,
+    "_density": 1,
+    "_sensor": false,
+    "_friction": 0.2,
+    "_restitution": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_radius": 81,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "f3QvHIBlZBU77khGLzA7mS"
+  },
+  {
+    "__type__": "6ec28NkMc1H+YDDyFVwrvrG",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -452,19 +452,23 @@
       "__uuid__": "82701155-d919-4ecf-9117-b142eabad1e5",
       "__expectedType__": "cc.Prefab"
     },
-    "beeg": {
-      "__id__": 5
+    "pickup": {
+      "__uuid__": "461c987f-f1cb-4319-9610-f1140b7254be",
+      "__expectedType__": "cc.Prefab"
     },
-    "smol": {
+    "beeg": {
       "__id__": 11
     },
-    "speed": 125,
+    "smol": {
+      "__id__": 5
+    },
+    "speed": 150,
     "life": 2,
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "aafjwll3VD2LdH8kO2G4P/"
+    "fileId": "a7HWtqPaVOBYBoUXJeclJl"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -474,7 +478,7 @@
     "asset": {
       "__id__": 0
     },
-    "fileId": "475e0Bij9FfKZWsjZpCEYI",
+    "fileId": "83Weg6k2FJcId1dNzv3qJ0",
     "instance": null,
     "targetOverrides": []
   }

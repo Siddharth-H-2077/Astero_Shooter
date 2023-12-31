@@ -1,4 +1,4 @@
-import { _decorator, CCInteger, Component, director, EventTouch, Input, input,  Node, Vec2} from 'cc';
+import { _decorator, CCInteger, Component, director, EventTouch, Node, Vec2} from 'cc';
 import { parallaxBG } from './parallaxBG';
 import { results } from './results';
 import { playerController } from './playerController';
@@ -53,6 +53,11 @@ export class gameController extends Component {
     })
     private Power:PowerDecider;
 
+    @property({
+        type:CCInteger,
+        tooltip:'Level Select'
+    })
+    private win;
     //reference to handle all the inputs 
     onLoad()
     {
@@ -68,11 +73,13 @@ export class gameController extends Component {
         if(this.target<=this.result.currentScore)
         {
             //WIN SCREEN
+            this.win=this.win+1;
             this.resultGame();
         }
         else if(this.player.playerDied)
         {
             //LOSE SCREEN
+            this.win=0;
             this.resultGame();
         }
         if(this.player.gotCoin)
@@ -128,25 +135,59 @@ export class gameController extends Component {
         director.pause();
         //director.loadScene('uiscene');
         this.result.showFinalScore();
-
+        if(this.win>=3)
+        {
+            director.preloadScene('playscene-002');
+        }
+        else if(this.win===2)
+        {
+            director.preloadScene('playscene-001');
+        }
+        else if(this.win===0)
+        {
+            director.preloadScene('uiscene');        
+        }
+        else
+        {
+            director.preloadScene('playscene');        
+        }
         this.node.on(Node.EventType.TOUCH_START,this.cScene,this);
-        director.preloadScene('uiscene');        
+        
     }
 
     private cScene()
         {
-            director.loadScene('uiscene');
+            if(this.win>=3)
+            {
+                director.loadScene('playscene-002');
+            }
+            else if(this.win===2)
+            {
+                director.loadScene('playscene-001');
+            }
+            else if(this.win===0)
+            {
+                director.loadScene('uiscene');        
+            }
+            else
+            {
+                director.loadScene('playscene');        
+            }
+            
         }
 
     playGame()
     {
         director.resume();
-
-        this.result.resetScore();
-        this.result.hidefirstscreen();
-        this.result.hideScore();
-        this.player.resetPlayer();
-
+        this.result.firstscreen();
+        setTimeout(()=>
+        {
+            this.result.resetScore();
+            this.result.hidefirstscreen();
+            this.result.hideScore();
+            this.player.resetPlayer();    
+        },1000)
+        
     }
 }
 
