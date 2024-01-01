@@ -4,7 +4,6 @@ const { ccclass, property } = _decorator;
 @ccclass('changeScript')
 export class changeScript extends Component {
 
-
 //inside the uigame scene
 protected onLoad(): void {
     //preloading play scene 

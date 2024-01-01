@@ -8,24 +8,24 @@ export class enemySpawn extends Component {
         type:Prefab,
         tooltip:'Enemy Prefab goes here'
     })
-    public enemyPrefab=null;
+    private enemyPrefab=null;
     
     @property
     ({
         type:CCFloat,
         tooltip:'enemy spawn rate'
     })
-    public spawnRate=2.25;
+    private spawnRate=2.25;
 
     @property
     ({
         type:CCFloat,
         tooltip:'speed'
     })
-    public speed=60;
+    private speed=60;
     
-    public enemy;
-    public cPos:Vec2;
+    private enemy;
+    private cPos:Vec2;
     private reachedCorner:boolean;
 
     spawnEnemy()
@@ -57,7 +57,7 @@ export class enemySpawn extends Component {
         this.checkCorner();
     }
     
-    public checkCorner()
+    private checkCorner()
     {
         if(this.cPos.x>=200)
         {

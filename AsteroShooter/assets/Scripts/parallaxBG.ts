@@ -9,7 +9,7 @@ export class parallaxBG extends Component {
         tooltip:'first img'
     })
 
-    public bg1:Node;
+    private bg1:Node;
 
     @property
     ({
@@ -17,7 +17,7 @@ export class parallaxBG extends Component {
         tooltip:'second img'
     })
     
-    public bg2:Node;  
+    private bg2:Node;  
     
     @property
     ({
@@ -25,7 +25,7 @@ export class parallaxBG extends Component {
         tooltip:'third img'
     })
     
-    public bg3:Node;
+    private bg3:Node;
 
 //Apparantly can't directly set up with a number with = sign so time for a var for some reason? 
 //...or im just too dumb to figure it out idk ...

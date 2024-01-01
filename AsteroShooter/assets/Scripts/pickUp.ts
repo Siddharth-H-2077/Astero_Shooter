@@ -7,17 +7,17 @@ export class pickUp extends Component {
         type:Prefab
         ,tooltip:'Particles Go here'
     })
-    public splosion:Prefab;
+    private splosion:Prefab;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of pickup'
     })
-    public speed;
+    private speed;
 
-    public collider;
-    public tempLocation:Vec2;
+    private collider;
+    private tempLocation:Vec2;
 
     onLoad(): void {
         this.collider=this.getComponent(Collider2D);
@@ -40,7 +40,7 @@ export class pickUp extends Component {
     }
 
     //check bullet collision
-    public checkCollision()
+    private checkCollision()
     {
         setTimeout(()=>
         {
@@ -53,17 +53,17 @@ export class pickUp extends Component {
     }
 
     //destroy bullet
-    public killEnemy()
+    private killEnemy()
     {
         this.node.destroy();
     }
         //check bullet collision
-        onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
-        {
-            setTimeout(() => {
-                this.checkCollision();
-            },1);
-        }
+    onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
+    {
+        setTimeout(() => {
+            this.checkCollision();
+        },1);
+    }
 }
 
 

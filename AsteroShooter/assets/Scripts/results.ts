@@ -1,4 +1,4 @@
- import { _decorator, Component, Label,RichText } from 'cc';
+ import { _decorator, Component, find, Label,RichText } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('results')
@@ -39,24 +39,24 @@ private GName:RichText;
 
 public currentScore:number;
 
-updateScore(num:number)
+public updateScore(num:number)
 {
     this.currentScore=num;
     this.score.string=''+this.currentScore;
 }
 
-resetScore()
+public resetScore()
 {
     this.updateScore(0);
     this.hideScore();
 }
  
-addScore()
+public addScore()
 {
     this.updateScore(this.currentScore+10);
 }
 
-firstscreen()
+public firstscreen()
 {
     this.GName.node.active=true;
     this.FScene.node.active=true;
@@ -65,24 +65,34 @@ firstscreen()
     this.Fscore.node.active=false;
 }
 
-hidefirstscreen()
+public hidefirstscreen()
 {
 this.GName.node.active=false;
 this.FScene.node.active=false;
 }
 
-hideScore()
+public hideScore()
 {
     this.score.node.active=true;
     this.Fscore.node.active=false;
     this.TAgain.node.active=false;
 }
-
-showFinalScore()
+//lose final score screen
+public showFinalScoreL()
 {
     this.score.node.active=false;
     this.Fscore.node.active=true;
     this.Fscore.string='Score : ' + this.currentScore;
+    this.TAgain.node.active=true;
+    this.GName.node.active=true;
+}
+
+public showFinalscoreW()
+{
+    this.score.node.active=false;
+    this.Fscore.node.active=true;
+    this.Fscore.string='Score : ' + this.currentScore;
+    this.TAgain.string='Click to go Next Level';
     this.TAgain.node.active=true;
     this.GName.node.active=true;
 }

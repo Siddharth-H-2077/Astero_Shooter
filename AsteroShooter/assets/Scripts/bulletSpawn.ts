@@ -9,7 +9,7 @@ export class bulletSpawn extends Component {
         type:Prefab,
         tooltip:'Bullet Prefab goes here'
     })
-    public bulletPrefab=null;
+    private bulletPrefab=null;
     
     @property
     ({
@@ -17,7 +17,7 @@ export class bulletSpawn extends Component {
         tooltip:'player controller needed to reference the player location to the spawned bullets'
     })
 
-    public playerRef:Node;
+    private playerRef:Node;
 
     shootBullet()
     {

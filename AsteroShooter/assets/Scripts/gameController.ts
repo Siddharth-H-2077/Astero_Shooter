@@ -14,7 +14,7 @@ export class gameController extends Component {
         type:CCInteger,
         tooltip:'Target Score'
     })
-    public target;
+    private target;
 
     //player reference
     @property({
@@ -59,7 +59,7 @@ export class gameController extends Component {
     })
     private win;
     //reference to handle all the inputs 
-    onLoad()
+    protected onLoad()
     {
         this.player.doubleBullet=false;
         this.player.gotCoin=false;
@@ -68,7 +68,7 @@ export class gameController extends Component {
         this.InitMouseListener();
     }
 
-    update()
+    protected update()
     {
         if(this.target<=this.result.currentScore)
         {
@@ -98,13 +98,11 @@ export class gameController extends Component {
                 this.Power.Activate();
             },0.3);
             this.player.doubleBullet=false;
-
         }
-
     }
     
     //mouse will work only on the area of the game controller.
-    InitMouseListener()
+    private InitMouseListener()
     {
         this.node.on(Node.EventType.TOUCH_START,this.onMouseDown,this);
         this.node.on(Node.EventType.TOUCH_CANCEL,this.onMouseUp,this);
@@ -112,17 +110,17 @@ export class gameController extends Component {
     }
 
     //not holding left click
-    onMouseUp(event:EventTouch)
+    private onMouseUp(event:EventTouch)
     {
         this.player.clicked=false;
     }
     //while holding left click
-    onMouseDown(event:EventTouch)
+    private onMouseDown(event:EventTouch)
     {
         this.player.clicked=true;
     }
     //while moving with left click held down    
-    onMouseMove(event:EventTouch)
+    private onMouseMove(event:EventTouch)
     {
         this.player.newPlayerLoc = new Vec2 (event.getLocation().x,event.getLocation().y);
         this.player.diff= event.getStartLocation()
@@ -130,53 +128,55 @@ export class gameController extends Component {
         this.player.movePlayer();
     }
     
-    resultGame()
+    private resultGame()
     {
         director.pause();
         //director.loadScene('uiscene');
-        this.result.showFinalScore();
         if(this.win>=3)
         {
+            this.result.showFinalscoreW();
             director.preloadScene('playscene-002');
         }
         else if(this.win===2)
         {
+            this.result.showFinalscoreW();
             director.preloadScene('playscene-001');
         }
-        else if(this.win===0)
+        else if(this.win===1)
         {
-            director.preloadScene('uiscene');        
+            this.result.showFinalscoreW();
+            director.preloadScene('playscene');        
         }
         else
         {
-            director.preloadScene('playscene');        
+            this.result.showFinalScoreL();
+            director.preloadScene('uiscene');        
         }
         this.node.on(Node.EventType.TOUCH_START,this.cScene,this);
         
     }
 
     private cScene()
+    {
+        if(this.win>=3)
         {
-            if(this.win>=3)
-            {
-                director.loadScene('playscene-002');
-            }
-            else if(this.win===2)
-            {
-                director.loadScene('playscene-001');
-            }
-            else if(this.win===0)
-            {
-                director.loadScene('uiscene');        
-            }
-            else
-            {
-                director.loadScene('playscene');        
-            }
-            
+            director.loadScene('playscene-002');
         }
+        else if(this.win===2)
+        {
+            director.loadScene('playscene-001');
+        }
+        else if(this.win===0)
+        {
+            director.loadScene('uiscene');        
+        }
+        else
+        {
+            director.loadScene('playscene');        
+        }        
+    }
 
-    playGame()
+    private playGame()
     {
         director.resume();
         this.result.firstscreen();

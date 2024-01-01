@@ -9,42 +9,42 @@ export class specialEnemy extends Component {
         type:Prefab
         ,tooltip:'splosion Goes here'
     })
-    public splosion:Prefab;
+    private splosion:Prefab;
 
     @property({
         type:Prefab
         ,tooltip:'pick up for player on death of this asteroid'
     })
-    public pickup:Prefab;
+    private pickup:Prefab;
 
     @property({
         type:Sprite
         ,tooltip:'BEEG BOY'
     })
-    public beeg:Sprite;
+    private beeg:Sprite;
 
     @property({
         type:Sprite
         ,tooltip:'smol boy'
     })
-    public smol:Sprite;
+    private smol:Sprite;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public speed;
+    private speed;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public life;
+    private life;
 
-    public collider;
-    public tempLocation:Vec2;
+    private collider;
+    private tempLocation:Vec2;
 
     onLoad(): void {
         this.beeg.node.active=true;
@@ -57,7 +57,7 @@ export class specialEnemy extends Component {
     
     //to move enemy
     //same script as base bullet script
-    update(deltaTime: number) 
+    protected update(deltaTime: number) 
     {
         this.tempLocation.y -=this.speed*deltaTime;
         this.node.setPosition(this.tempLocation.x,this.tempLocation.y);
@@ -69,7 +69,7 @@ export class specialEnemy extends Component {
     }
 
     //check bullet collision
-    public checkCollision()
+    private checkCollision()
     {
         this.life-=1;
         setTimeout(()=>
@@ -96,7 +96,7 @@ export class specialEnemy extends Component {
     }
 
     //destroy bullet
-    public killEnemy()
+    private killEnemy()
     {
         setTimeout(()=>
         {
@@ -107,16 +107,15 @@ export class specialEnemy extends Component {
         this.node.destroy();
     }
 
-        //check bullet collision
-        onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
-        {
-            //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
-            //destroys asteroid after 1 milli second 
-            setTimeout(() => {
-            this.checkCollision();
-            },3);
-    
-        }
+    //check bullet collision
+    private onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
+    {
+        //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
+        //destroys asteroid after 1 milli second 
+        setTimeout(() => {
+        this.checkCollision();
+        },3);
+    }
 }
 
 

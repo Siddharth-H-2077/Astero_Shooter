@@ -21,15 +21,12 @@
       },
       {
         "__id__": 7
-      },
-      {
-        "__id__": 78
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
-      "__id__": 79
+      "__id__": 78
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -60,7 +57,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 80
+      "__id__": 79
     },
     "_id": "be7b4f58-b1d9-454f-8bd7-d8512ba940a8"
   },
@@ -978,7 +975,7 @@
       "__expectedType__": "cc.Prefab"
     },
     "spawnRate": 1.25,
-    "speed": 150,
+    "speed": 80,
     "_id": "b2p+nHaVtL5Kqk3prtX5/X"
   },
   {
@@ -1040,8 +1037,8 @@
       "__uuid__": "e22dc271-8561-4aac-9726-161f54362ede",
       "__expectedType__": "cc.Prefab"
     },
-    "spawnRate": 1.75,
-    "speed": 180,
+    "spawnRate": 2,
+    "speed": 90,
     "_id": "d6Dd49QwtAuZAloXVXL/+K"
   },
   {
@@ -2362,47 +2359,6 @@
     "_id": "e2FohgS6tEJa9Kylqgr66q"
   },
   {
-    "__type__": "cc.Node",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "_parent": {
-      "__id__": 1
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [],
-    "_prefab": null,
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_mobility": 0,
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": "c071BKzy1I5by4DgQVwWED"
-  },
-  {
     "__type__": "cc.PrefabInfo",
     "root": null,
     "asset": null,
@@ -2418,28 +2374,28 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 81
+      "__id__": 80
     },
     "shadows": {
-      "__id__": 82
+      "__id__": 81
     },
     "_skybox": {
-      "__id__": 83
+      "__id__": 82
     },
     "fog": {
-      "__id__": 84
+      "__id__": 83
     },
     "octree": {
-      "__id__": 85
+      "__id__": 84
     },
     "skin": {
-      "__id__": 86
+      "__id__": 85
     },
     "lightProbeInfo": {
-      "__id__": 87
+      "__id__": 86
     },
     "postSettings": {
-      "__id__": 89
+      "__id__": 88
     },
     "bakedWithStationaryMainLight": false,
     "bakedWithHighpLightmap": false
@@ -2584,7 +2540,7 @@
     "_showWireframe": true,
     "_showConvex": false,
     "_data": {
-      "__id__": 88
+      "__id__": 87
     },
     "_lightProbeSphereVolume": 1
   },

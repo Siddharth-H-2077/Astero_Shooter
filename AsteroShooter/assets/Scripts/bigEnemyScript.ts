@@ -9,36 +9,36 @@ export class bigEnemyScript extends Component {
         type:Prefab
         ,tooltip:'splosion Goes here'
     })
-    public splosion:Prefab;
+    private splosion:Prefab;
 
     @property({
         type:Sprite
         ,tooltip:'BEEG BOY'
     })
-    public beeg:Sprite;
+    private beeg:Sprite;
 
     @property({
         type:Sprite
         ,tooltip:'smol boy'
     })
-    public smol:Sprite;
+    private smol:Sprite;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public speed;
+    private speed;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public life;
+    private life;
 
-    public collider;
-    public tempLocation:Vec2;
+    private collider;
+    private tempLocation:Vec2;
 
     onLoad(): void {
         this.beeg.node.active=true;
@@ -90,21 +90,20 @@ export class bigEnemyScript extends Component {
     }
 
     //destroy bullet
-    public killEnemy()
+    private killEnemy()
     {
         this.node.destroy();
     }
 
-        //check bullet collision
-        onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
-        {
-            //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
-            //destroys asteroid after 1 milli second 
-            setTimeout(() => {
-            this.checkCollision();
-            },3);
-    
-        }
+    //check bullet collision
+    onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
+    {
+        //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
+        //destroys asteroid after 1 milli second 
+        setTimeout(() => {
+        this.checkCollision();
+        },3);
+    }
 }
 
 

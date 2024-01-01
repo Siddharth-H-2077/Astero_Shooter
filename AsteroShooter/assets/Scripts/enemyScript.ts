@@ -7,24 +7,24 @@ export class enemyScript extends Component {
         type:Prefab
         ,tooltip:'splosion Goes here'
     })
-    public splosion:Prefab;
+    private splosion:Prefab;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public speed;
+    private speed;
 
     @property
     ({
         type:CCFloat,
         tooltip:'The speed of enemy'
     })
-    public life;
+    private life;
 
-    public collider;
-    public tempLocation:Vec2;
+    private collider;
+    private tempLocation:Vec2;
 
     onLoad(): void {
         this.collider=this.getComponent(Collider2D);
@@ -47,7 +47,7 @@ export class enemyScript extends Component {
     }
 
     //check bullet collision
-    public checkCollision()
+    private checkCollision()
     {
         this.life-=1;
         setTimeout(()=>
@@ -65,20 +65,19 @@ export class enemyScript extends Component {
     }
 
     //destroy bullet
-    public killEnemy()
+    private killEnemy()
     {
         this.node.destroy();
     }
-        //check bullet collision
-        onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
-        {
-            //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
-            //destroys bullet after 1 micro second 
-            setTimeout(() => {
-                this.checkCollision();
-            },0.001);
-    
-        }
+    //check bullet collision
+    onReduceLife(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
+    {
+        //console.log(selfCollider.name+"-Bain IM in MINECRAFT-");
+        //destroys bullet after 1 micro second 
+        setTimeout(() => {
+        this.checkCollision();
+        },0.001);
+    }
 }
 
 

@@ -8,15 +8,16 @@ export class bulletScript extends Component {
         type:CCFloat,
         tooltip:'The speed of bullet'
     })
-    public speed;
+    private speed;
    
-    public game;
-    public enemyHit;
+    private game;
+    //private enemyHit;
 
+    private tempLocation:Vec2;
+    private collider;
 
-    public tempLocation:Vec2;
-    public collider;
-    onLoad(): void {
+    onLoad(): void 
+    {
         //referencing gameController
         this.game=find("GameController").getComponent("gameController");
 
@@ -52,7 +53,7 @@ export class bulletScript extends Component {
     }
 
     //destroy bullet
-    public killBullet()
+    private killBullet()
     {
         this.node.destroy();
     }

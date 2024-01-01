@@ -18,13 +18,13 @@ export class playerController extends Component {
     private collider:Collider2D;
 
 
-    resetPlayer()
+    public resetPlayer()
     {
         this.newPlayerLoc= new Vec2(0,0);
         this.node.setPosition(this.newPlayerLoc.x,this.newPlayerLoc.y);
     }
 
-    movePlayer()
+    public movePlayer()
     {
         if((this.clicked))
         {
@@ -35,7 +35,7 @@ export class playerController extends Component {
         }        
     }
 
-    onBeginContact(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
+    protected onBeginContact(selfCollider:Collider2D,otherCollider:Collider2D,contact:IPhysics2DContact|null)
     {
         //console.log("Contacted-"+otherCollider.name);
         if(otherCollider.name==="Asteroid<CircleCollider2D>"||otherCollider.name==="Asteroid-001<CircleCollider2D>"||otherCollider.name==="SpecialAsteroid<CircleCollider2D>"||otherCollider.name==="GoldenBoy<CircleCollider2D>")
@@ -52,7 +52,7 @@ export class playerController extends Component {
         }
     }
     
-    onLoad(): void 
+    protected onLoad(): void 
     {
         if(this.collider)
         {

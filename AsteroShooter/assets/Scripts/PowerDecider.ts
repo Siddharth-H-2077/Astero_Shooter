@@ -9,15 +9,15 @@ export class PowerDecider extends Component {
         type:bulletSpawn,
         tooltip:'Dual shot goes here'
     })
-    public SingleShot:bulletSpawn;
+    private SingleShot:bulletSpawn;
     @property({
         type:doubleBullet,
         tooltip:'Dual shot goes here'
     })
-    public DoubleShot:doubleBullet;
+    private DoubleShot:doubleBullet;
     public activate:boolean;
 
-    protected onLoad(): 
+    onLoad(): 
     void 
     {
         this.activate=false;
